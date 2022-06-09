@@ -41,6 +41,12 @@ dependencies {
     //Navigation Component
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
+    // Dynamic Feature Module Support
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:2.5.0-rc01"
+    // Testing Navigation
+    androidTestImplementation "androidx.navigation:navigation-testing:2.5.0-rc01"
+
+
 
     //Dagger 2
     implementation 'com.google.dagger:dagger:2.42'
