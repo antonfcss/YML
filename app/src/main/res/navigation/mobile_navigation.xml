@@ -9,5 +9,14 @@
         android:id="@+id/aboutMovieFragment"
         android:name="com.example.yml.AboutMovieFragment"
         android:label="fragment_about_movie"
-        tools:layout="@layout/fragment_about_movie" />
+        tools:layout="@layout/fragment_about_movie" >
+        <action
+            android:id="@+id/action_aboutMovieFragment_to_blankFragment"
+            app:destination="@id/blankFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.example.yml.BlankFragment"
+        android:label="fragment_blank"
+        tools:layout="@layout/fragment_blank" />
 </navigation>

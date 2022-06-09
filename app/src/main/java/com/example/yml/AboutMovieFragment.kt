@@ -1,11 +1,14 @@
 package com.example.yml
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.yml.databinding.FragmentAboutMovieBinding
 
 class AboutMovieFragment : Fragment() {
@@ -15,14 +18,31 @@ class AboutMovieFragment : Fragment() {
     private var _binding: FragmentAboutMovieBinding? = null
     private val binding get() = _binding!!
 
+
+    private val backPressedCallback by lazy {
+        object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                findNavController().popBackStack()
+            }
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentAboutMovieBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.floatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_aboutMovieFragment_to_blankFragment)
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,backPressedCallback)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
