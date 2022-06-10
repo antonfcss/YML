@@ -43,6 +43,7 @@ class AboutMovieFragment : Fragment() {
             findNavController().navigate(R.id.action_aboutMovieFragment_to_blankFragment)
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,backPressedCallback)
+        requireContext().appComponent.inject(this)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

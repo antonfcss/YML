@@ -1,7 +1,7 @@
 package com.example.yml
 
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class AboutMovieViewModel : ViewModel() {
-    // TODO: Implement the ViewModel
+class AboutMovieViewModel @Inject constructor(private val ABC: ABC) : ViewModel() {
 }
