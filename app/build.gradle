@@ -45,7 +45,8 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.5.0-rc01"
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:2.5.0-rc01"
-
+    //ViewModelExtensions
+    implementation 'androidx.fragment:fragment-ktx:1.4.1'
 
 
     //Dagger 2
