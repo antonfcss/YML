@@ -14,6 +14,7 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
 
     override fun provideViewModel(): SearchViewModel = getViewModelFromFactory()
 
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Если хотим обратиться к биндингу
