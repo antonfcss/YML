@@ -8,7 +8,7 @@
 
 
     <ImageView
-        android:id="@+id/poster"
+        android:id="@+id/poster_movie"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -29,7 +29,7 @@
         android:textColor="@color/white"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/poster"
+        app:layout_constraintStart_toEndOf="@+id/poster_movie"
         app:layout_constraintTop_toTopOf="parent"
         tools:layout_editor_absoluteY="16dp"
         tools:text="Дюна" />
@@ -42,7 +42,7 @@
         android:layout_marginTop="3dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@+id/poster"
+        app:layout_constraintStart_toEndOf="@+id/poster_movie"
         app:layout_constraintTop_toBottomOf="@+id/title"
         tools:text="КП:10" />
 
@@ -67,7 +67,7 @@
         android:layout_marginTop="3dp"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@+id/poster"
+        app:layout_constraintStart_toEndOf="@+id/poster_movie"
         app:layout_constraintTop_toBottomOf="@+id/rating_kp"
         tools:text="Год: 2021" />
 
@@ -118,17 +118,17 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/button_movie_watch_color"
         android:text="Cмотреть трейлер"
-        app:layout_constraintEnd_toEndOf="@+id/poster"
+        app:layout_constraintEnd_toEndOf="@+id/poster_movie"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/poster"
-        app:layout_constraintTop_toBottomOf="@+id/poster" />
+        app:layout_constraintStart_toStartOf="@+id/poster_movie"
+        app:layout_constraintTop_toBottomOf="@+id/poster_movie" />
 
     <androidx.constraintlayout.widget.Barrier
         android:id="@+id/title_section_bottom_barrier"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="poster,button_movie_watch,
+        app:constraint_referenced_ids="poster_movie,button_movie_watch,
             movie_country,movie_genre,gross_worldwide,movie_genre,
             release_date,rating_imdb,rating_kp" />
 
