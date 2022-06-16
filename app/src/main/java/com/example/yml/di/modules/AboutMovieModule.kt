@@ -13,6 +13,7 @@ class AboutMovieModule {
     fun provideAboutMovieMapper(): AboutMovieMapper {
         return AboutMovieMapper()
     }
+
     @Provides
     fun provideAboutMovieDataSource(): AboutMovieDataSource {
         return AboutMovieDataSource()

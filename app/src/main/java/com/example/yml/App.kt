@@ -6,7 +6,7 @@ import com.example.yml.data.db.MovieDatabase
 import com.example.yml.di.AppComponent
 import com.example.yml.di.DaggerAppComponent
 
-class MainApp: Application() {
+class App: Application() {
     lateinit var appComponent: AppComponent
 
     override fun onCreate() {
@@ -18,6 +18,6 @@ class MainApp: Application() {
 
 val Context.appComponent: AppComponent
     get() = when(this){
-        is MainApp -> appComponent
+        is App -> appComponent
         else -> this.applicationContext.appComponent
     }

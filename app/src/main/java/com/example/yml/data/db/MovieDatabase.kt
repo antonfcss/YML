@@ -15,7 +15,7 @@ abstract class MovieDatabase : RoomDatabase() {
     companion object {
         lateinit var instance: MovieDatabase
 
-        fun init(applicationContext: Context){
+        fun init(applicationContext: Context): MovieDatabase {
             instance = Room
                 .databaseBuilder(applicationContext, MovieDatabase::class.java, "db")
 
@@ -23,6 +23,7 @@ abstract class MovieDatabase : RoomDatabase() {
                 .setJournalMode(JournalMode.TRUNCATE)
 
                 .build()
+            return instance
         }
     }
 }
