@@ -2,6 +2,7 @@ package com.example.yml.di.modules
 
 import android.app.Application
 import android.content.Context
+import androidx.room.Room
 import com.example.yml.data.db.AboutMovieDao
 import com.example.yml.data.db.MovieDatabase
 import dagger.Provides
@@ -26,5 +27,11 @@ class DataModule(private val application: Application) {
     @Provides
     private fun provideAppContext(): Context {
         return application.applicationContext
+    }
+
+    @Singleton
+    @Provides
+    fun getDataBase(): MovieDatabase {
+        return Room.databaseBuilder(application, MovieDatabase::class.java, "database").build()
     }
 }
