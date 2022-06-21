@@ -1,4 +1,4 @@
-package com.example.yml.data
+package com.example.yml.data.about
 
 class AboutMovieDataSource {
     //Представляем что это запрос в сеть

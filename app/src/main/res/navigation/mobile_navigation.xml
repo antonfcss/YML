@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/blankFragment"
-        android:name="com.example.yml.presentation.features.blank.BlankFragment"
+        android:name="com.example.yml.presentation.features.movie.MovieFragment"
         android:label="fragment_blank"
-        tools:layout="@layout/fragment_blank" />
+        tools:layout="@layout/fragment_movie" />
 </navigation>

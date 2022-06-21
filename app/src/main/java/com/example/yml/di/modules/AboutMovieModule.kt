@@ -1,7 +1,7 @@
 package com.example.yml.di.modules
 
-import com.example.yml.data.AboutMovieDataSource
-import com.example.yml.data.AboutMovieMapper
+import com.example.yml.data.about.AboutMovieDataSource
+import com.example.yml.data.about.AboutMovieMapper
 import dagger.Module
 import dagger.Provides
 

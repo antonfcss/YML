@@ -3,9 +3,9 @@ package com.example.yml.data.db
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
-@Entity
-data class Movie(
+//Модель данных
+@Entity(tableName = "movies")
+data class MovieDataBaseModel(
     @PrimaryKey(autoGenerate = true) val id: Long,
     @ColumnInfo(name = "poster_movie") val posterMovie: String,
     @ColumnInfo(name = "title") val title: String,

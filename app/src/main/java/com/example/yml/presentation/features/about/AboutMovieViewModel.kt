@@ -2,7 +2,7 @@ package com.example.yml.presentation.features.about
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.yml.domain.AboutMovieUseCase
+import com.example.yml.domain.about.AboutMovieUseCase
 import javax.inject.Inject
 import androidx.lifecycle.LiveData
 

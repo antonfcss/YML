@@ -5,12 +5,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.yml.presentation.features.about.AboutMovieViewModel
 import com.example.yml.di.vm.DaggerViewModelFactory
 import com.example.yml.di.vm.ViewModelKey
-import com.example.yml.presentation.features.search.SearchViewModel
+import com.example.yml.presentation.features.movie.MovieViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
 import javax.inject.Singleton
-
+//Хранение ViewModel. Сдесь мы указываем всё ViewModel, когда создаём новые экраны
 @Module
 abstract class ViewModelsModule {
     @Binds
@@ -24,6 +24,6 @@ abstract class ViewModelsModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(SearchViewModel::class)
-    abstract fun bindSearchViewModel(searchViewModel: SearchViewModel): ViewModel
+    @ViewModelKey(MovieViewModel::class)
+    abstract fun bindMovieViewModel(MovieViewModel: MovieViewModel): ViewModel
 }

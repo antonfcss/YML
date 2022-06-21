@@ -1,6 +1,6 @@
-package com.example.yml.data
+package com.example.yml.data.about
 
-import com.example.yml.domain.AboutMovieModel
+import com.example.yml.domain.about.AboutMovieModel
 import javax.inject.Inject
 
 class AboutMovieRepository @Inject constructor(

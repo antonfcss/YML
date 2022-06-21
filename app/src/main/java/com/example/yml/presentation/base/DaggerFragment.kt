@@ -11,6 +11,6 @@ abstract class DaggerFragment : Fragment() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        requireContext().appComponent.inject(this)
+        appComponent.inject(this)
     }
 }
