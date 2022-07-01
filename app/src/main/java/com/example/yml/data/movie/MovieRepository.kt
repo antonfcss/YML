@@ -5,7 +5,7 @@ import com.example.yml.domain.movie.MovieModel
 import javax.inject.Inject
 
 /*
- Опракидываем db созданую в DataModule. Главная задача репозитория сделать из модели даднных
+ Опракидываем db созданую в DataModule. Главная задача репозитория сделать из модели данных
  MovieDataBaseModel, сделать модель данных с которым будет рабоать приложение MovieModule
  */
 class MovieRepository @Inject constructor(

@@ -45,15 +45,25 @@ dependencies {
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
 
-
     //Navigation Component
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
 
+    def retrofit_version = '2.9.0'
+    def okHttp_version = '4.10.0'
+
+    //Ретрофит и GSON
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation "com.squareup.okhttp3:$okHttp_version"
+
+    //Загрузка картинок
+    implementation 'com.squareup.picasso:picasso:2.71828'
+
     //Dagger 2
     implementation 'com.google.dagger:dagger:2.42'
     kapt 'com.google.dagger:dagger-compiler:2.42'
-
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'

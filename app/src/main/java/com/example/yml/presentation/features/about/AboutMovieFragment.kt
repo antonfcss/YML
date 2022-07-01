@@ -1,6 +1,7 @@
 package com.example.yml.presentation.features.about
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,12 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
             navigateTo(R.id.action_aboutMovieFragment_to_blankFragment)
         }
         viewModel.getTestLiveData().observe(viewLifecycleOwner, ::testFun)
+        viewModel.getTestLiveData().observe(viewLifecycleOwner, ::addURLtoLog)
         viewModel.test()
+        viewModel.getData()
+    }
+
+    private fun addURLtoLog(url: String){
+        Log.d("test",url)
     }
 }
