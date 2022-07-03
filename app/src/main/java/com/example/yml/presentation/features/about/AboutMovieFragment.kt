@@ -28,10 +28,10 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
         binding.floatingActionButton.setOnClickListener {
             navigateTo(R.id.action_aboutMovieFragment_to_blankFragment)
         }
-        viewModel.getTestLiveData().observe(viewLifecycleOwner, ::testFun)
         viewModel.getTestLiveData().observe(viewLifecycleOwner, ::addURLtoLog)
-        viewModel.test()
         viewModel.getData()
+        viewModel.getTestLiveData().observe(viewLifecycleOwner, ::testFun)
+        viewModel.test()
     }
 
     private fun addURLtoLog(url: String){

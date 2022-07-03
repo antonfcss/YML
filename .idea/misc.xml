@@ -3,11 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/drawable/bottom_now_selector.xml" value="0.1985" />
+        <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/drawable/ic_baseline_local_movies_24.xml" value="0.1985" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/activity_main.xml" value="0.24166666666666667" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/fragment_about_movie.xml" value="0.2557291666666667" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/fragment_blank.xml" value="0.259375" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/fragment_movie.xml" value="0.259375" />
+        <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/fragment_my_top.xml" value="0.259375" />
+        <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/fragment_mytop.xml" value="0.2128205128205128" />
+        <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/fragment_popular.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/fragment_search.xml" value="0.259375" />
+        <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/menu/bottom_nav_menu.xml" value="0.259375" />
       </map>
     </option>
   </component>

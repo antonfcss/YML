@@ -3,7 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@id/aboutMovieFragment">
+    app:startDestination="@id/popularFragment">
+
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.example.yml.presentation.features.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search"/>
+    <fragment
+        android:id="@+id/popularFragment"
+        android:name="com.example.yml.presentation.features.popular.PopularFragment"
+        android:label="@string/title_popular"
+        tools:layout="@layout/fragment_popular"/>
+    <fragment
+        android:id="@+id/myTopFragment"
+        android:name="com.example.yml.presentation.features.mytop.MyTopFragment"
+        android:label="@string/title_my_top"
+        tools:layout="@layout/fragment_my_top"/>
 
     <fragment
         android:id="@+id/aboutMovieFragment"
@@ -19,4 +35,6 @@
         android:name="com.example.yml.presentation.features.movie.MovieFragment"
         android:label="fragment_blank"
         tools:layout="@layout/fragment_movie" />
+
+
 </navigation>

@@ -6,6 +6,8 @@ import com.example.yml.presentation.features.about.AboutMovieViewModel
 import com.example.yml.di.vm.DaggerViewModelFactory
 import com.example.yml.di.vm.ViewModelKey
 import com.example.yml.presentation.features.movie.MovieViewModel
+import com.example.yml.presentation.features.mytop.MyTopViewModel
+import com.example.yml.presentation.features.popular.PopularViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -26,4 +28,15 @@ abstract class ViewModelsModule {
     @IntoMap
     @ViewModelKey(MovieViewModel::class)
     abstract fun bindMovieViewModel(MovieViewModel: MovieViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(MyTopViewModel::class)
+    abstract fun bindMyTopViewModel(MyTopViewModel: MyTopViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(PopularViewModel::class)
+    abstract fun bindPopularViewModel(PopularViewModel: PopularViewModel): ViewModel
+
 }

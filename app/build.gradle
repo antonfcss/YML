@@ -39,24 +39,25 @@ android {
 dependencies {
     def roomVersion = '2.4.2'
 
-    // Room components
+    //region Room components
     implementation "androidx.room:room-runtime:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
     androidTestImplementation "androidx.room:room-testing:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
+    //endregion
 
     //Navigation Component
     implementation 'androidx.navigation:navigation-fragment-ktx:2.4.2'
     implementation 'androidx.navigation:navigation-ui-ktx:2.4.2'
 
     def retrofit_version = '2.9.0'
-    def okHttp_version = '4.10.0'
 
-    //Ретрофит и GSON
+    //region Ретрофит и GSON
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    //endregion
 
     //Загрузка картинок
     implementation 'com.squareup.picasso:picasso:2.71828'

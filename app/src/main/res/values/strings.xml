@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">YML</string>
     <string name="todo" />
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_popular">Полулярное</string>
+    <string name="title_search">Поиск</string>
+    <string name="title_my_top">Мой топ</string>
 </resources>
