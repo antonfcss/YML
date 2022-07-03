@@ -35,6 +35,6 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
     }
 
     private fun addURLtoLog(url: String){
-        Log.d("test",url)
+        Log.d("testApi",url)
     }
 }

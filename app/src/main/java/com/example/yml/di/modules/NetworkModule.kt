@@ -1,6 +1,7 @@
 package com.example.yml.di.modules
 
 import com.example.yml.data.api.RetrofitApi
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
