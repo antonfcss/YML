@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_recommended"
+        android:id="@+id/navigation_popular"
         android:icon="@drawable/ic_baseline_local_movies_24"
         android:title="@string/title_popular"/>
 
@@ -11,7 +11,7 @@
         android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/title_search"/>
     <item
-        android:id ="@+id/navigation_top"
+        android:id ="@+id/navigation_my_top"
         android:icon="@drawable/ic_baseline_list_24"
         android:title="@string/title_my_top"
         />
