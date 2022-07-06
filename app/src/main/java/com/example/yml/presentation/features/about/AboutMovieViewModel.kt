@@ -18,8 +18,8 @@ class AboutMovieViewModel @Inject constructor(
 ) : ViewModel() {
 
    private val testStringLiveData: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
+       MutableLiveData<String>()
+   }
 
     //Получаем готовую модельку из domain и достаем из нее данные
     fun test() {

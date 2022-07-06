@@ -9,8 +9,12 @@ import com.example.yml.domain.movie.MovieModel
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
 
     class MoviesViewHolder(
-        val binding: RecyclerviewItemMovieBinding
-    ) : RecyclerView.ViewHolder(binding.root)
+        private val binding: RecyclerviewItemMovieBinding
+    ) : RecyclerView.ViewHolder(binding.root) {
+        fun bind(movieModel: MovieModel) {
+            binding.nameMovie.text = movieModel.title
+        }
+    }
 
     var movies: List<MovieModel> = emptyList()
         set(newValue) {
@@ -25,10 +29,7 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
-        val movie = movies[position]
-        with(holder.binding) {
-            nameMovie.text = movie.title
-        }
+        holder.bind(movies[position])
     }
 
     override fun getItemCount(): Int = movies.size
