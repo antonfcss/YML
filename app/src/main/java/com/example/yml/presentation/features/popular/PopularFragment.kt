@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yml.App
+import com.example.yml.R
 import com.example.yml.databinding.FragmentPopularBinding
 import com.example.yml.presentation.base.BaseFragment
 import com.example.yml.presentation.base.getViewModelFromFactory
@@ -28,6 +30,7 @@ class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>()
         val layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerview.layoutManager = layoutManager
         binding.recyclerview.adapter = adapter
+
     }
 
 }
