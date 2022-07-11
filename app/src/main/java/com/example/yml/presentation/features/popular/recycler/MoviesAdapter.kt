@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.yml.databinding.RecyclerviewItemMovieBinding
+import com.example.yml.domain.api.DomainRetrofitModel
 import com.example.yml.domain.movie.MovieModel
 
 class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
@@ -11,12 +12,12 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
     class MoviesViewHolder(
         private val binding: RecyclerviewItemMovieBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(movieModel: MovieModel) {
-            binding.nameMovie.text = movieModel.title
+        fun bind(movieModel: DomainRetrofitModel) {
+            binding.nameMovie.text = movieModel.url
         }
     }
 
-    var movies: List<MovieModel> = emptyList()
+    var movies: List<DomainRetrofitModel> = emptyList()
         set(newValue) {
             field = newValue
             notifyDataSetChanged()

@@ -7,7 +7,7 @@ import javax.inject.Inject
 class ApiUseCase @Inject constructor(
     private val retrofitRepository: RetrofitRepository
 ) {
-    fun getData(): Flow<DomainRetrofitModel>{
+    fun getData(): Flow<List<DomainRetrofitModel>>{
         return retrofitRepository.getDataFromRemote()
     }
 }

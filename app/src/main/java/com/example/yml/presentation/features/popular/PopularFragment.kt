@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.yml.App
 import com.example.yml.R
 import com.example.yml.databinding.FragmentPopularBinding
+import com.example.yml.domain.api.DomainRetrofitModel
 import com.example.yml.domain.movie.MovieModel
 import com.example.yml.presentation.base.BaseFragment
 import com.example.yml.presentation.base.getViewModelFromFactory
@@ -29,7 +31,7 @@ class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>()
         super.onViewCreated(view, savedInstanceState)
         adapter = MoviesAdapter()
 
-        val layoutManager = LinearLayoutManager(requireContext())
+        val layoutManager = GridLayoutManager(requireContext(),2)
         binding.recyclerview.layoutManager = layoutManager
         binding.recyclerview.adapter = adapter
 
@@ -37,7 +39,7 @@ class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>()
         viewModel.getData()
 
     }
-    private fun addRecycler(movieModel: List<MovieModel>){
+    private fun addRecycler(movieModel: List<DomainRetrofitModel>){
         adapter.movies = movieModel
     }
 

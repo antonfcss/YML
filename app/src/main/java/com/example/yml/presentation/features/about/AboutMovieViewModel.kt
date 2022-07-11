@@ -34,7 +34,7 @@ class AboutMovieViewModel @Inject constructor(
             apiUseCase.getData()
                 .catch { exception -> Log.d("dsadsa", exception.toString()) }
                 .collect { domainRetrofitModel ->
-                    testStringLiveData.postValue(domainRetrofitModel.url.toString())
+//                    testStringLiveData.postValue(domainRetrofitModel.url.toString())
                 }
         }
     }

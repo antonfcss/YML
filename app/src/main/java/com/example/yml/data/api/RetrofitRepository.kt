@@ -12,7 +12,15 @@ import javax.inject.Inject
 class RetrofitRepository @Inject constructor(
     private val retrofitApi: RetrofitApi
 ) {
-    fun getDataFromRemote(): Flow<DomainRetrofitModel> {
-        return flow { emit(RetrofitMapper.mapToDomain(retrofitApi.getMovie())) }
+    fun getDataFromRemote(): Flow<List<DomainRetrofitModel>> {
+//        return flow { emit(RetrofitMapper.mapToDomain(retrofitApi.getMovie())) }
+        return flow {
+            val retrofitModel = retrofitApi.getPopularMovies()
+            val outputList = arrayListOf<DomainRetrofitModel>()
+            retrofitModel.docs.forEach{
+                outputList.add(DomainRetrofitModel(it.name))
+            }
+            emit(outputList)
+        }
     }
 }
