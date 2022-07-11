@@ -18,7 +18,7 @@ class RetrofitRepository @Inject constructor(
             val retrofitModel = retrofitApi.getPopularMovies()
             val outputList = arrayListOf<DomainRetrofitModel>()
             retrofitModel.docs.forEach{
-                outputList.add(DomainRetrofitModel(it.name))
+                outputList.add(DomainRetrofitModel(it.name,it.poster))
             }
             emit(outputList)
         }

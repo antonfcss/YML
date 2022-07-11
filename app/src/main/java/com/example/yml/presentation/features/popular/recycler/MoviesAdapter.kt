@@ -22,17 +22,18 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
             field = newValue
             notifyDataSetChanged()
         }
-
+    //метод для создания нового элемента списка
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val binding = RecyclerviewItemMovieBinding.inflate(inflater, parent, false)
         return MoviesViewHolder(binding)
     }
-
+    //Обновление элемента списка
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         holder.bind(movies[position])
     }
 
+    //Возвращает количество элементов в списке, чтобы адаптер знал их количество
     override fun getItemCount(): Int = movies.size
 
 }
