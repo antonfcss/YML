@@ -7,19 +7,19 @@ import com.example.yml.domain.about.AboutMovieUseCase
 import javax.inject.Inject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.example.yml.domain.api.ApiUseCase
+import com.example.yml.domain.popular.PopularUseCase
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class AboutMovieViewModel @Inject constructor(
     private val aboutMovieUseCase: AboutMovieUseCase,
-    private val apiUseCase: ApiUseCase
+    private val popularUseCase: PopularUseCase
 ) : ViewModel() {
 
-   private val testStringLiveData: MutableLiveData<String> by lazy {
-       MutableLiveData<String>()
-   }
+    private val testStringLiveData: MutableLiveData<String> by lazy {
+        MutableLiveData<String>()
+    }
 
     //Получаем готовую модельку из domain и достаем из нее данные
     fun test() {
@@ -29,9 +29,10 @@ class AboutMovieViewModel @Inject constructor(
     fun getTestLiveData(): LiveData<String> {
         return testStringLiveData
     }
-    fun getData(){
+
+    fun getData() {
         viewModelScope.launch {
-            apiUseCase.getData()
+            popularUseCase.getData()
                 .catch { exception -> Log.d("dsadsa", exception.toString()) }
                 .collect { domainRetrofitModel ->
 //                    testStringLiveData.postValue(domainRetrofitModel.url.toString())

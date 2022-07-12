@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.yml.presentation.features.about.AboutMovieFragment">
 
@@ -44,7 +44,7 @@
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/poster_movie"
         app:layout_constraintTop_toBottomOf="@+id/title"
-        tools:text="КП:10" />
+        android:text="@string/rating_kp" />
 
     <TextView
         android:id="@+id/rating_imdb"
@@ -57,7 +57,7 @@
         app:layout_constraintStart_toEndOf="@+id/rating_kp"
         app:layout_constraintTop_toTopOf="@+id/rating_kp"
         app:layout_constraintVertical_bias="0.0"
-        tools:text="IMDB: 10" />
+        android:text="@string/rating_imdb" />
 
     <TextView
         android:id="@+id/release_date"
@@ -69,7 +69,7 @@
         android:textColor="@color/white"
         app:layout_constraintStart_toEndOf="@+id/poster_movie"
         app:layout_constraintTop_toBottomOf="@+id/rating_kp"
-        tools:text="Год: 2021" />
+        android:text="@string/release_date" />
 
     <TextView
         android:id="@+id/movie_country"
@@ -82,7 +82,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/release_date"
         app:layout_constraintTop_toBottomOf="@+id/release_date"
-        tools:text="Cтраны : США, Канада, Венгрия" />
+        android:text="@string/country" />
 
     <TextView
         android:id="@+id/movie_genre"
@@ -96,21 +96,21 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="@+id/movie_country"
         app:layout_constraintTop_toBottomOf="@+id/movie_country"
-        tools:text="Жанры : фантастика, боевик, драма, приключения" />
+        android:text="@string/movie_genre" />
 
     <TextView
         android:id="@+id/gross_worldwide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
+        android:text="@string/gross_worldwide"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         android:textColor="@color/white"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/movie_genre"
-        app:layout_constraintTop_toBottomOf="@+id/movie_genre"
-        tools:text="Сборы в мире:  $400 671 789" />
+        app:layout_constraintTop_toBottomOf="@+id/movie_genre" />
 
     <Button
         android:id="@+id/button_movie_watch"
@@ -158,9 +158,7 @@
         android:contentDescription="@string/todo"
         android:src="@drawable/ic_baseline_favorite_border_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.954"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"  />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
