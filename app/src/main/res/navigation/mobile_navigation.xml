@@ -24,7 +24,7 @@
     <fragment
         android:id="@+id/aboutMovieFragment"
         android:name="com.example.yml.presentation.features.about.AboutMovieFragment"
-        android:label="fragment_about_movie"
+        android:label="О фильме"
         tools:layout="@layout/fragment_about_movie" >
         <action
             android:id="@+id/action_aboutMovieFragment_to_blankFragment"

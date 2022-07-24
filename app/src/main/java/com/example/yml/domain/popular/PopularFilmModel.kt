@@ -7,7 +7,7 @@ data class PopularFilmModel(
     val name: String,
     val description: String,
     val year: Int,
-    val imdb: Double,
-    val kp: Double,
+    val imdb: String,
+    val kp: String,
     val poster: Bitmap?
 ): Serializable

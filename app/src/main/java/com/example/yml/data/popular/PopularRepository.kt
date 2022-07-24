@@ -24,8 +24,8 @@ class PopularRepository @Inject constructor(
                         it.name,
                         it.description,
                         it.year,
-                        it.rating.imdb,
-                        it.rating.kp,
+                        it.rating.imdb.format(1),
+                        it.rating.kp.format(1),
                         getImageFromRemote(it.posterApiModel.url)
                     )
                 )
@@ -37,4 +37,5 @@ class PopularRepository @Inject constructor(
     private suspend fun getImageFromRemote(url: String): Bitmap? {
         return Picasso.get().load(url).get()
     }
+    private fun Double.format(digits: Int) = "%.${digits}f".format(this)
 }
