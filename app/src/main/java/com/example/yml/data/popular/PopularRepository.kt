@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 // Репозиторий где мы работаем с описанымми запросами из RetrofitApi.
-// Чтобы их получить мы провайдем интерфейс RetrofitApi с помощью @Inject constructor.
+// Чтобы их получить мы провайдем интерфейс PopularApi с помощью @Inject constructor.
 // Благодаря этому у нас видны все методы интерфейса. Flow класс Coroutines, который описывает поток
 // emit то что мы прокидываем в Flow
 class PopularRepository @Inject constructor(
@@ -26,7 +26,7 @@ class PopularRepository @Inject constructor(
                         it.year,
                         it.rating.imdb,
                         it.rating.kp,
-                        getImageFromRemote(it.poster.url)
+                        getImageFromRemote(it.posterApiModel.url)
                     )
                 )
             }

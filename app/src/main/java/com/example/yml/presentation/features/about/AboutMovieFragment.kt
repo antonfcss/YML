@@ -22,9 +22,8 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
         super.onViewCreated(view, savedInstanceState)
 
         val film = arguments?.get("popularFilm") as PopularFilmModel
-        Toast.makeText(requireContext(), film.name, Toast.LENGTH_LONG).show()
+//        Toast.makeText(requireContext(), film.name, Toast.LENGTH_LONG).show()
         with(binding) {
-            posterMovie.setImageBitmap(film.poster)
             posterMovie.setImageBitmap(film.poster)
             title.text = film.name
             releaseDate.text = getString(R.string.release_date, film.year)
@@ -42,15 +41,6 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
                 ).show()
             }
         }
-//        viewModel.getTestLiveData().observe(viewLifecycleOwner, ::addURLtoLog)
-//        viewModel.getData()
-//        viewModel.getTestLiveData().observe(viewLifecycleOwner, ::testFun)
     }
-//
-//    private fun addURLtoLog(url: String) {
-//    }
-//
-//    private fun testFun(testString: String) {
-//    }
 }
 

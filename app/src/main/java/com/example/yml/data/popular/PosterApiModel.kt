@@ -1,5 +1,5 @@
 package com.example.yml.data.popular
 
-data class Poster(
+data class PosterApiModel(
     val url: String
 )
