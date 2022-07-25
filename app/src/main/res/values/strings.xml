@@ -8,7 +8,7 @@
     <string name="rating_kp">КП:%1$s</string>
     <string name="rating_imdb">IMDB: %1$s</string>
     <string name="release_date">Год: %1$s</string>
-    <string name="country">Cтраны : %1$s ,</string>
-    <string name="movie_genre">Жанры : %1$s ,</string>
-    <string name="gross_worldwide">Сборы в мире: $%1$d</string>
+    <string name="country">Cтрана: %1$s</string>
+    <string name="movie_genre">Жанры: %1$s</string>
+    <string name="fees_worldwide">Сборы в мире: $ %1$s</string>
 </resources>

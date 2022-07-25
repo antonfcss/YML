@@ -18,7 +18,7 @@ class PopularRepository @Inject constructor(
         return flow {
             val outputList = arrayListOf<PopularFilmModel>()
             val retrofitModel = popularApi.getPopularMovies()
-            retrofitModel.docs.forEach {
+            retrofitModel.docs.forEach { it ->
                 val detailApiModel = popularApi.getMovieDetails(it.id.toString())
                 it.rating.kp.toString()
                 outputList.add(
@@ -29,9 +29,11 @@ class PopularRepository @Inject constructor(
                         it.rating.imdb.format(1),
                         it.rating.kp.format(1),
                         getImageFromRemote(it.posterApiModel.url),
-                        detailApiModel.videosApi.trailerApis.map { it.url }.first(),
-                        detailApiModel.genresApi.map { it.genreName },
-                        detailApiModel.countriesApi.map { it.countryName }
+                        detailApiModel.videosApi.trailerApis.map { it.url }
+                            .find { it.contains("youtube") },
+                        formatApiToString(detailApiModel.genresApi.map { it.genreName }),
+                        formatApiToString(detailApiModel.countriesApi.map { it.countryName }),
+//                        detailApiModel.feesApi.worldApi.valueFees
                     )
                 )
             }
@@ -48,11 +50,12 @@ class PopularRepository @Inject constructor(
     private fun formatApiToString(list: List<String>): String {
         var string = ""
         for (i in list.indices) {
-            string += list[i] + ", "
             if (i == list.size - 1) {
-                list[i] + "."
+                string += list[i] + "."
+                return string
             }
+            string += list[i] + ", "
         }
-        return list
+        return string
     }
 }

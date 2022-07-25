@@ -1,11 +1,12 @@
 package com.example.yml.presentation.features.about
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.example.yml.R
 import com.example.yml.databinding.FragmentAboutMovieBinding
 import com.example.yml.domain.popular.PopularFilmModel
@@ -32,15 +33,16 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
             ratingKp.text = getString(R.string.rating_kp, film.kp)
             shortDescriptions.text = film.description
             movieCountry.text = getString(R.string.country, film.country)
+            movieGenre.text = getString(R.string.movie_genre, film.genre)
+//            feesWorldwide.text = getString(R.string.fees_worldwide, film.value)
             floatingActionButton.setOnClickListener {
                 navigateTo(R.id.action_aboutMovieFragment_to_blankFragment)
             }
             buttonMovieWatch.setOnClickListener {
-                Toast.makeText(
-                    requireContext(),
-                    "В разработке из-за Coroutines",
-                    Toast.LENGTH_SHORT
-                ).show()
+                val webIntent = Intent()
+                webIntent.action = Intent.ACTION_VIEW
+                webIntent.data = Uri.parse(film.url)
+                startActivity(webIntent)
             }
         }
     }

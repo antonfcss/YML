@@ -75,14 +75,15 @@
         android:id="@+id/movie_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="4dp"
+        android:text="@string/country"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         android:textColor="@color/white"
         app:layout_constrainedWidth="true"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/release_date"
-        app:layout_constraintTop_toBottomOf="@+id/release_date"
-        android:text="@string/country" />
+        app:layout_constraintTop_toBottomOf="@+id/release_date" />
 
     <TextView
         android:id="@+id/movie_genre"
@@ -99,11 +100,11 @@
         android:text="@string/movie_genre" />
 
     <TextView
-        android:id="@+id/gross_worldwide"
+        android:id="@+id/fees_worldwide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
-        android:text="@string/gross_worldwide"
+        android:text="@string/fees_worldwide"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         android:textColor="@color/white"
         app:layout_constrainedWidth="true"
@@ -129,7 +130,7 @@
         android:layout_height="0dp"
         app:barrierDirection="bottom"
         app:constraint_referenced_ids="poster_movie,button_movie_watch,
-            movie_country,movie_genre,gross_worldwide,movie_genre,
+            movie_country,movie_genre,fees_worldwide,movie_genre,
             release_date,rating_imdb,rating_kp" />
 
     <TextView
