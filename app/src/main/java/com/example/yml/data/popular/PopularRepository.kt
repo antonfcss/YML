@@ -44,4 +44,15 @@ class PopularRepository @Inject constructor(
     }
 
     private fun Double.format(digits: Int) = "%.${digits}f".format(this)
+
+    private fun formatApiToString(list: List<String>): String {
+        var string = ""
+        for (i in list.indices) {
+            string += list[i] + ", "
+            if (i == list.size - 1) {
+                list[i] + "."
+            }
+        }
+        return list
+    }
 }
