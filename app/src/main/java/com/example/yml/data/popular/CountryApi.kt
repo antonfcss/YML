@@ -2,7 +2,7 @@ package com.example.yml.data.popular
 
 import com.google.gson.annotations.SerializedName
 
-data class Genre(
+data class CountryApi(
     @SerializedName("name")
-    val genreName: String
+    val countryName: String
 )

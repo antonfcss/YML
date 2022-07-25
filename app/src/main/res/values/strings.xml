@@ -5,10 +5,10 @@
     <string name="title_popular">Полулярное</string>
     <string name="title_search">Поиск</string>
     <string name="title_my_top">Мой топ</string>
-    <string name="rating_kp">КП:%1$f</string>
-    <string name="rating_imdb">IMDB: %1$f</string>
-    <string name="release_date">Год: %1$d</string>
-    <string name="country">Cтраны : США, Канада, Венгрия</string>
-    <string name="movie_genre">Жанры : фантастика, боевик, драма, приключения</string>
+    <string name="rating_kp">КП:%1$s</string>
+    <string name="rating_imdb">IMDB: %1$s</string>
+    <string name="release_date">Год: %1$s</string>
+    <string name="country">Cтраны : %1$s ,</string>
+    <string name="movie_genre">Жанры : %1$s ,</string>
     <string name="gross_worldwide">Сборы в мире: $%1$d</string>
 </resources>

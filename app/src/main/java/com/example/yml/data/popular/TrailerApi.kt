@@ -1,5 +1,5 @@
 package com.example.yml.data.popular
 
-data class Trailer(
+data class TrailerApi(
     val url: String
 )

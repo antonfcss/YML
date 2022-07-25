@@ -16,9 +16,11 @@ class PopularRepository @Inject constructor(
 ) {
     suspend fun getDataFromRemote(): Flow<List<PopularFilmModel>> {
         return flow {
-            val retrofitModel = popularApi.getPopularMovies()
             val outputList = arrayListOf<PopularFilmModel>()
+            val retrofitModel = popularApi.getPopularMovies()
             retrofitModel.docs.forEach {
+                val detailApiModel = popularApi.getMovieDetails(it.id.toString())
+                it.rating.kp.toString()
                 outputList.add(
                     PopularFilmModel(
                         it.name,
@@ -26,7 +28,10 @@ class PopularRepository @Inject constructor(
                         it.year,
                         it.rating.imdb.format(1),
                         it.rating.kp.format(1),
-                        getImageFromRemote(it.posterApiModel.url)
+                        getImageFromRemote(it.posterApiModel.url),
+                        detailApiModel.videosApi.trailerApis.map { it.url }.first(),
+                        detailApiModel.genresApi.map { it.genreName },
+                        detailApiModel.countriesApi.map { it.countryName }
                     )
                 )
             }
@@ -37,5 +42,6 @@ class PopularRepository @Inject constructor(
     private suspend fun getImageFromRemote(url: String): Bitmap? {
         return Picasso.get().load(url).get()
     }
+
     private fun Double.format(digits: Int) = "%.${digits}f".format(this)
 }

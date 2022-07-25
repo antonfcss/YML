@@ -1,6 +1,7 @@
 package com.example.yml.presentation.features.about
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,8 +21,8 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         val film = arguments?.get("popularFilm") as PopularFilmModel
+        Log.d("asdfg", film.toString())
 //        Toast.makeText(requireContext(), film.name, Toast.LENGTH_LONG).show()
         with(binding) {
             posterMovie.setImageBitmap(film.poster)
@@ -30,6 +31,7 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
             ratingImdb.text = getString(R.string.rating_imdb, film.imdb)
             ratingKp.text = getString(R.string.rating_kp, film.kp)
             shortDescriptions.text = film.description
+            movieCountry.text = getString(R.string.country, film.country)
             floatingActionButton.setOnClickListener {
                 navigateTo(R.id.action_aboutMovieFragment_to_blankFragment)
             }
