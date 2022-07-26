@@ -17,9 +17,5 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //Если хотим обратиться к биндингу
-        binding.root
-        //Если хотим обратиться к viewModel
-        viewModel
-    }
+//           binding.searchView.textchan
 }

@@ -33,7 +33,7 @@ class PopularRepository @Inject constructor(
                             .find { it.contains("youtube") },
                         formatApiToString(detailApiModel.genresApi.map { it.genreName }),
                         formatApiToString(detailApiModel.countriesApi.map { it.countryName }),
-//                        detailApiModel.feesApi.worldApi.valueFees
+//                        detailApiModel.feesApi.worldApi.valueFees?:0
                     )
                 )
             }
@@ -58,4 +58,5 @@ class PopularRepository @Inject constructor(
         }
         return string
     }
+
 }

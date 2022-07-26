@@ -1,6 +1,7 @@
 package com.example.yml.di.modules
 
 import com.example.yml.data.popular.PopularApi
+import com.example.yml.data.search.SearchApi
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -28,9 +29,11 @@ class NetworkModule() {
     }
 
     //Провайдем Api. С помощью данной функции мы соеденяем наши запросы
-    // из RetrofitApi и соединяем их с Retrofit
+    // из PopularApi и соединяем их с Retrofit
     @Provides
     fun provideApi(retrofit: Retrofit): PopularApi = retrofit.create()
 
+    @Provides
+    fun provideSearchApi(retrofit: Retrofit): SearchApi = retrofit.create()
 
 }

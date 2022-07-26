@@ -1,12 +1,11 @@
 package com.example.yml.presentation.features.about
 
-import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import com.example.yml.R
 import com.example.yml.databinding.FragmentAboutMovieBinding
 import com.example.yml.domain.popular.PopularFilmModel
@@ -39,10 +38,7 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
                 navigateTo(R.id.action_aboutMovieFragment_to_blankFragment)
             }
             buttonMovieWatch.setOnClickListener {
-                val webIntent = Intent()
-                webIntent.action = Intent.ACTION_VIEW
-                webIntent.data = Uri.parse(film.url)
-                startActivity(webIntent)
+                navigateTo(R.id.playTrailerDialog, bundleOf(Pair("trailerUrl", film.url)))
             }
         }
     }

@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.yml.R
 import com.example.yml.databinding.FragmentPopularBinding
@@ -36,6 +37,9 @@ class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>()
         viewModel.getMovieLiveData().observe(viewLifecycleOwner, ::addRecycler)
         viewModel.getData()
 
+
+        viewModel.getLoadingState().observe(viewLifecycleOwner, ::onLoadingStateUpdate)
+
     }
 
     private fun addRecycler(movieModel: List<PopularFilmModel>) {
@@ -45,4 +49,8 @@ class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>()
         adapter.movies = movieModel
     }
 
+    private fun onLoadingStateUpdate(b: Boolean) {
+        binding.loadingProgressBar.isVisible = !b
+        binding.recyclerview.isVisible = b
+    }
 }
