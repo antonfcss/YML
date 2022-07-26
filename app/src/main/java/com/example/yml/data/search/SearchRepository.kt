@@ -9,6 +9,6 @@ class SearchRepository @Inject constructor(
     private val searchApi: SearchApi
 ) {
     suspend fun getMoviesSearchName(movieName: String): Flow<List<PopularMoviesApi>> {
-        return flow { searchApi.funSearchMovie(movieName) }
+        return flow {  searchApi.funSearchMovie(movieName)}
     }
 }

@@ -31,8 +31,8 @@ class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>()
             navigateTo(R.id.aboutMovieFragment, bundle)
         }
         val layoutManager = GridLayoutManager(requireContext(), 2)
-        binding.recyclerview.layoutManager = layoutManager
-        binding.recyclerview.adapter = adapter
+        binding.recyclerviewPopular.layoutManager = layoutManager
+        binding.recyclerviewPopular.adapter = adapter
 
         viewModel.getMovieLiveData().observe(viewLifecycleOwner, ::addRecycler)
         viewModel.getData()
@@ -51,6 +51,6 @@ class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>()
 
     private fun onLoadingStateUpdate(b: Boolean) {
         binding.loadingProgressBar.isVisible = !b
-        binding.recyclerview.isVisible = b
+        binding.recyclerviewPopular.isVisible = b
     }
 }
