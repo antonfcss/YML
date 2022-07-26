@@ -12,7 +12,6 @@ val appComponent: AppComponent
     get() = appComponentInitializer!!
 
 class App: Application() {
-    lateinit var appComponent: AppComponent
     //Инициализация Dagger при помощи AppModule
     override fun onCreate() {
         super.onCreate()

@@ -6,6 +6,6 @@ import retrofit2.http.Query
 
 //Для примера взял PopularMoviesApi так как поля приходят одинаковые.
 interface SearchApi  {
-    @GET("movie?token=ZQQ8GMN-TN54SGK-NB3MKEC-ZKB8V06&field=name&isStrict=true")
-    suspend fun funSearchMovie(@Query("search") movie: String): List<PopularMoviesApi>
+    @GET("movie?token=7X7WT21-YV24K75-N5EH7ZQ-JJV83W9&field=name&isStrict=true")
+    suspend fun funSearchMovie(@Query("search") movie: String): PopularMoviesApi
 }

@@ -23,7 +23,6 @@ class MoviesAdapter : RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>() {
         return MoviesViewHolder(binding)
     }
 
-
     //Обновление элемента списка
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         //Нажатие на

@@ -13,6 +13,7 @@ import javax.inject.Inject
 // emit то что мы прокидываем в Flow
 class PopularRepository @Inject constructor(
     private val popularApi: PopularApi
+
 ) {
     suspend fun getDataFromRemote(): Flow<List<PopularFilmModel>> {
         return flow {
@@ -20,7 +21,6 @@ class PopularRepository @Inject constructor(
             val retrofitModel = popularApi.getPopularMovies()
             retrofitModel.docs.forEach { it ->
                 val detailApiModel = popularApi.getMovieDetails(it.id.toString())
-                it.rating.kp.toString()
                 outputList.add(
                     PopularFilmModel(
                         it.name,
@@ -29,11 +29,11 @@ class PopularRepository @Inject constructor(
                         it.rating.imdb.format(1),
                         it.rating.kp.format(1),
                         getImageFromRemote(it.posterApiModel.url),
-                        detailApiModel.videosApi.trailerApis.map { it.url }
-                            .find { it.contains("youtube") },
+                        detailApiModel.videosApi.trailerApis
+                            .find { it.url.contains("youtube") }?.url,
                         formatApiToString(detailApiModel.genresApi.map { it.genreName }),
                         formatApiToString(detailApiModel.countriesApi.map { it.countryName }),
-//                        detailApiModel.feesApi.worldApi.valueFees?:0
+                        detailApiModel.feesApi?.worldApi?.valueFees ?: 0
                     )
                 )
             }
@@ -58,5 +58,4 @@ class PopularRepository @Inject constructor(
         }
         return string
     }
-
 }

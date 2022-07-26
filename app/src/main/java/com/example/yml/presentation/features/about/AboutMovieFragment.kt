@@ -22,24 +22,38 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val film = arguments?.get("popularFilm") as PopularFilmModel
-        Log.d("asdfg", film.toString())
-//        Toast.makeText(requireContext(), film.name, Toast.LENGTH_LONG).show()
         with(binding) {
             posterMovie.setImageBitmap(film.poster)
             title.text = film.name
+            title.requestFocus()
             releaseDate.text = getString(R.string.release_date, film.year)
             ratingImdb.text = getString(R.string.rating_imdb, film.imdb)
             ratingKp.text = getString(R.string.rating_kp, film.kp)
             shortDescriptions.text = film.description
             movieCountry.text = getString(R.string.country, film.country)
             movieGenre.text = getString(R.string.movie_genre, film.genre)
-//            feesWorldwide.text = getString(R.string.fees_worldwide, film.value)
+            feesWorldwide.text = validateFeesWorldwideValue(film.feesValue)
             floatingActionButton.setOnClickListener {
                 navigateTo(R.id.action_aboutMovieFragment_to_blankFragment)
             }
+            /*    floatingActionButton.setOnLongClickListener {
+                    Toast.makeText(requireContext(), "test", Toast.LENGTH_LONG).show()
+                    return@setOnLongClickListener true
+                }
+
+             */
             buttonMovieWatch.setOnClickListener {
                 navigateTo(R.id.playTrailerDialog, bundleOf(Pair("trailerUrl", film.url)))
             }
+        }
+    }
+
+    private fun validateFeesWorldwideValue(fees: Int): String {
+        return if (fees == 0) {
+            //Заюзать ресурсы
+            "Данных о сборе не найдено"
+        } else {
+            getString(R.string.fees_worldwide, fees)
         }
     }
 }

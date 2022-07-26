@@ -14,6 +14,6 @@ data class PopularFilmModel(
     val url: String?,
     val genre: String,
     val country: String,
-//    val value: Int?,
+    val feesValue: Int,
     //    val nameTrailer: String
 ) : Serializable

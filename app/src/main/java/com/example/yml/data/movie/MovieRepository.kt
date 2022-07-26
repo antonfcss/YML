@@ -20,7 +20,6 @@ class MovieRepository @Inject constructor(
             .map { moviesMapper.mapToDomain(it) }
     }
 
-
     /*
     Принимаем модель MovieModel(модель не база данных) и отправяет в db базу данных с помощью moviesMapper
      */

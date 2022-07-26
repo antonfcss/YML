@@ -9,6 +9,6 @@ data class MovieDetailApiModel(
     val genresApi: List<GenreApi>,
     @SerializedName("countries")
     val countriesApi: List<CountryApi>,
-//    @SerializedName("fees")
-//    val feesApi: FeesApi
+    @SerializedName("fees")
+    val feesApi: FeesApi?
 )

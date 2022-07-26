@@ -11,7 +11,7 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
     //Обработка кликок с изменяемой лямдой
     var onItemClick: ((PopularFilmModel) -> Unit)? = null
 
-    private var movies: List<PopularFilmModel> = emptyList()
+     var movies: List<PopularFilmModel> = emptyList()
         set(newValue) {
             field = newValue
             notifyDataSetChanged()
@@ -23,7 +23,6 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
         val binding = RecyclerviewItemSearchBinding.inflate(inflater, parent, false)
         return SearchViewHolder(binding)
     }
-
 
     //Обновление элемента списка
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
