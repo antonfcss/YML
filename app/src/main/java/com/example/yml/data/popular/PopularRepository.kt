@@ -24,13 +24,13 @@ class PopularRepository @Inject constructor(
                 outputList.add(
                     PopularFilmModel(
                         it.name,
-                        it.description,
+                        it.description ?: "Описания нет",
                         it.year,
                         it.rating.imdb.format(1),
                         it.rating.kp.format(1),
                         getImageFromRemote(it.posterApiModel.url),
-                        detailApiModel.videosApi.trailerApis
-                            .find { it.url.contains("youtube") }?.url,
+                        detailApiModel.videosApi?.trailerApis
+                            ?.find { it.nameTrailer.contains("Трейлер") && it.url.contains("youtube") }?.url,
                         formatApiToString(detailApiModel.genresApi.map { it.genreName }),
                         formatApiToString(detailApiModel.countriesApi.map { it.countryName }),
                         detailApiModel.feesApi?.worldApi?.valueFees ?: 0

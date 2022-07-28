@@ -25,7 +25,7 @@ class PlayTrailerDialog() : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val url = arguments?.getString("trailerUrl")
-        Log.d("dsadsa", url.toString())
+        Log.d("asd", url.toString())
         val videoId = url?.split("=")?.get(1)
         Log.d("dsadsa", videoId.toString())
         val player = view.findViewById<YouTubePlayerView>(R.id.trailerPlayer)

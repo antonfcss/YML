@@ -25,16 +25,7 @@
         android:id="@+id/aboutMovieFragment"
         android:name="com.example.yml.presentation.features.about.AboutMovieFragment"
         android:label="О фильме"
-        tools:layout="@layout/fragment_about_movie" >
-        <action
-            android:id="@+id/action_aboutMovieFragment_to_blankFragment"
-            app:destination="@id/blankFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/blankFragment"
-        android:name="com.example.yml.presentation.features.movie.MovieFragment"
-        android:label="fragment_blank"
-        tools:layout="@layout/fragment_movie" />
+        tools:layout="@layout/fragment_about_movie" />
     <dialog
         android:id="@+id/playTrailerDialog"
         android:name="com.example.yml.presentation.features.about.dialog.PlayTrailerDialog"

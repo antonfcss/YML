@@ -5,6 +5,7 @@ import com.example.yml.data.popular.TrailerApi
 import java.io.Serializable
 
 data class PopularFilmModel(
+//    val id: Long,
     val name: String,
     val description: String,
     val year: Int,
@@ -14,6 +15,6 @@ data class PopularFilmModel(
     val url: String?,
     val genre: String,
     val country: String,
-    val feesValue: Int,
+    val feesValue: Long,
     //    val nameTrailer: String
 ) : Serializable

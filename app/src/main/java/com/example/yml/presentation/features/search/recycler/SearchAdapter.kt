@@ -42,6 +42,7 @@ class SearchAdapter : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
         fun bind(movieModel: PopularFilmModel) {
             binding.textViewSearchNameMovie.text = movieModel.name
             binding.searchImage.setImageBitmap(movieModel.poster)
+            binding.textViewRelease.text = movieModel.year.toString()
         }
     }
 }

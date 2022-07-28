@@ -7,6 +7,8 @@ import com.example.yml.domain.about.AboutMovieUseCase
 import javax.inject.Inject
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.yml.domain.mytop.MyTopUseCase
+import com.example.yml.domain.popular.PopularFilmModel
 import com.example.yml.domain.popular.PopularUseCase
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
@@ -14,29 +16,26 @@ import kotlinx.coroutines.launch
 
 class AboutMovieViewModel @Inject constructor(
     private val aboutMovieUseCase: AboutMovieUseCase,
-    private val popularUseCase: PopularUseCase
+    private val popularUseCase: PopularUseCase,
+    private val myTopUseCase: MyTopUseCase
 ) : ViewModel() {
 
-    private val testStringLiveData: MutableLiveData<String> by lazy {
-        MutableLiveData<String>()
-    }
+    //LiveData списка PopularFilmModel. Ниже функция с которой мы её получаем.
+    private val testStringLiveData = MutableLiveData<List<PopularFilmModel>>()
+    fun getMovieLiveData() = testStringLiveData
 
-    //Получаем готовую модельку из domain и достаем из нее данные
-    fun test() {
-        testStringLiveData.postValue(aboutMovieUseCase.getTestData().testString)
-    }
-
-    fun getTestLiveData(): LiveData<String> {
-        return testStringLiveData
-    }
-
-    fun getData() {
+    fun loadMoviesListToLog() {
         viewModelScope.launch {
-            popularUseCase.getData()
-                .catch { exception -> Log.d("dsadsa", exception.toString()) }
-                .collect { domainRetrofitModel ->
-//                    testStringLiveData.postValue(domainRetrofitModel.url.toString())
-                }
+            testStringLiveData.postValue(myTopUseCase.getAllMoviesFromDataBase())
+        }
+    }
+
+    fun addToDB(popularFilmModel: PopularFilmModel) {
+        //Т.к. функции в классе MovieUseCase помечены suspend(многопоточность), то мы с помощью
+        //viewModelScope.launch получаем доступ к потоку.
+        // viewModelScope- откуда будем запускать потом,launch-запуск coroutine
+        viewModelScope.launch {
+            myTopUseCase.addMovieToDataBase(popularFilmModel)
         }
     }
 }

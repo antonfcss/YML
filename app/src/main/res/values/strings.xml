@@ -11,4 +11,5 @@
     <string name="country">Cтрана: %1$s</string>
     <string name="movie_genre">Жанры: %1$s</string>
     <string name="fees_worldwide">Сборы в мире: $ %1$d</string>
+    <string name="error_fees">Данных о сборе не найдено</string>
 </resources>

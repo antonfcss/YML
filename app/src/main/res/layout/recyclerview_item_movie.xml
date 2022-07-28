@@ -26,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Название фильма"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:maxLines="5"
         android:textSize="17sp"
         app:layout_constrainedWidth="true"

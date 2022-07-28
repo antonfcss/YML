@@ -4,6 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class VideosApi(
     @SerializedName("trailers")
-    val trailerApis: List<TrailerApi>
+    val trailerApis: List<TrailerApi>?
 )
 

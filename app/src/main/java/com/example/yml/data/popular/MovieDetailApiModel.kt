@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class MovieDetailApiModel(
     @SerializedName("videos")
-    val videosApi: VideosApi,
+    val videosApi: VideosApi?,
     @SerializedName("genres")
     val genresApi: List<GenreApi>,
     @SerializedName("countries")

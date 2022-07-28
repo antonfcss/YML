@@ -3,7 +3,7 @@ package com.example.yml.data.popular
 import com.google.gson.annotations.SerializedName
 
 data class Doc(
-    val description: String,
+    val description: String?,
     val id: Int,
     val movieLength: Int,
     val name: String,
