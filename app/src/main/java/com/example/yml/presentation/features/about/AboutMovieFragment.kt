@@ -1,15 +1,10 @@
 package com.example.yml.presentation.features.about
 
-import android.R
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toolbar
-import androidx.activity.OnBackPressedCallback
 import androidx.core.os.bundleOf
-import androidx.navigation.fragment.findNavController
-import com.example.yml.R
 import com.example.yml.databinding.FragmentAboutMovieBinding
 import com.example.yml.domain.popular.PopularFilmModel
 import com.example.yml.presentation.base.BaseFragment
@@ -26,7 +21,6 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,backPressedCallback)
         val film = arguments?.get("popularFilm") as PopularFilmModel
         with(binding) {
             posterMovie.setImageBitmap(film.poster)
@@ -59,13 +53,6 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
             getString(com.example.yml.R.string.error_fees)
         } else {
             getString(com.example.yml.R.string.fees_worldwide, fees)
-        }
-    }
-    private val backPressedCallback by lazy {
-        object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                findNavController().popBackStack()
-            }
         }
     }
 }
