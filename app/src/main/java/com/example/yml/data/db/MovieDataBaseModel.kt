@@ -1,13 +1,13 @@
 package com.example.yml.data.db
 
-import android.graphics.Bitmap
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+
 //Модель данных
 @Entity(tableName = "movies")
 data class MovieDataBaseModel(
-    @ColumnInfo(name = "name_movie") val name: String,
+    @PrimaryKey @ColumnInfo(name = "name_movie") val name: String,
     @ColumnInfo(name = "description_movie") val description: String,
     @ColumnInfo(name = "release_date") val year: Int,
     @ColumnInfo(name = "rating_imdb") val imdb: String,
@@ -17,6 +17,4 @@ data class MovieDataBaseModel(
     @ColumnInfo(name = "movie_genre") val genre: String,
     @ColumnInfo(name = "movie_country") val country: String,
     @ColumnInfo(name = "gross_worldwide") val feesValue: Long,
-    ){
-    @PrimaryKey(autoGenerate = true) var id: Long = 0
-}
+)

@@ -20,13 +20,4 @@ class MyTopViewModel @Inject constructor(
             testStringLiveData.postValue(myTopUseCase.getAllMoviesFromDataBase())
         }
     }
-
-    fun addToDB(popularFilmModel: PopularFilmModel) {
-        //Т.к. функции в классе MovieUseCase помечены suspend(многопоточность), то мы с помощью
-        //viewModelScope.launch получаем доступ к потоку.
-        // viewModelScope- откуда будем запускать потом,launch-запуск coroutine
-        viewModelScope.launch {
-            myTopUseCase.addMovieToDataBase(popularFilmModel)
-        }
-    }
 }

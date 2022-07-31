@@ -15,11 +15,9 @@ class MyTopRepository @Inject constructor(
         return movieDatabase.aboutMovieDao().getAllMoviesFromDB()
             .map { myTopMapper.mapToDomain(it) }
     }
+//
+//    /*
+//    Принимаем модель MovieModel(модель не база данных) и отправяет в db базу данных с помощью moviesMapper
+//     */
 
-    /*
-    Принимаем модель MovieModel(модель не база данных) и отправяет в db базу данных с помощью moviesMapper
-     */
-    suspend fun addMovieToDB(popularFilmModel: PopularFilmModel) {
-        movieDatabase.aboutMovieDao().addMovieToDB(myTopMapper.mapToDb(popularFilmModel))
-    }
 }

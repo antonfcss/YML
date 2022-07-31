@@ -1,6 +1,7 @@
 package com.example.yml.presentation.features.about
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,8 +22,9 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val film = arguments?.get("popularFilm") as PopularFilmModel
+        val film = arguments?.get(POPULAR_FILM_TAG) as PopularFilmModel
         with(binding) {
+            viewModel.isFilmIsPopular(film)
             posterMovie.setImageBitmap(film.poster)
             title.text = film.name
             title.requestFocus()
@@ -33,9 +35,7 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
             movieCountry.text = getString(com.example.yml.R.string.country, film.country)
             movieGenre.text = getString(com.example.yml.R.string.movie_genre, film.genre)
             feesWorldwide.text = validateFeesWorldwideValue(film.feesValue)
-            floatingActionButton.setOnClickListener {
-                viewModel.addToDB(film)
-            }
+
             /*    floatingActionButton.setOnLongClickListener {
                     Toast.makeText(requireContext(), "test", Toast.LENGTH_LONG).show()
                     return@setOnLongClickListener true
@@ -43,7 +43,27 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
 
              */
             buttonMovieWatch.setOnClickListener {
-                navigateTo(com.example.yml.R.id.playTrailerDialog, bundleOf(Pair("trailerUrl", film.url)))
+                navigateTo(
+                    com.example.yml.R.id.playTrailerDialog, bundleOf(Pair("trailerUrl", film.url))
+                )
+            }
+            viewModel.getIsFilmInMyTopLiveData().observe(viewLifecycleOwner) {
+                Log.d("dsadsa121", it.toString())
+                if (it) {
+                    //Есть в сохраненных, то вешаем удалить из бд
+                    floatingActionButtonDelete.visibility = View.VISIBLE
+                    floatingActionButtonDelete.setOnClickListener {
+                        floatingActionButton.visibility = View.GONE
+                        viewModel.deleteFromDB(film)
+                    }
+                } else {
+                    //Нет в сохраненных
+                    floatingActionButton.visibility = View.VISIBLE
+                    floatingActionButton.setOnClickListener {
+                        floatingActionButtonDelete.visibility = View.GONE
+                        viewModel.addToDB(film)
+                    }
+                }
             }
         }
     }
@@ -54,6 +74,10 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
         } else {
             getString(com.example.yml.R.string.fees_worldwide, fees)
         }
+    }
+
+    companion object {
+        const val POPULAR_FILM_TAG = "popularFilm"
     }
 }
 

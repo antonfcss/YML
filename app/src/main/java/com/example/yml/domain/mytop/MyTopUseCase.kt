@@ -7,10 +7,6 @@ import javax.inject.Inject
 class MyTopUseCase @Inject constructor(
     private val myTopRepository: MyTopRepository
 ) {
-    suspend fun addMovieToDataBase(popularFilmModel: PopularFilmModel) {
-        myTopRepository.addMovieToDB(popularFilmModel)
-    }
-
     /*
       Возвращает домен модель
      */

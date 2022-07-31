@@ -3,20 +3,15 @@ package com.example.yml.presentation.features.about
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.yml.domain.about.AboutMovieUseCase
-import javax.inject.Inject
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
+import com.example.yml.domain.about.AboutMovieUseCase
 import com.example.yml.domain.mytop.MyTopUseCase
 import com.example.yml.domain.popular.PopularFilmModel
-import com.example.yml.domain.popular.PopularUseCase
-import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
 class AboutMovieViewModel @Inject constructor(
     private val aboutMovieUseCase: AboutMovieUseCase,
-    private val popularUseCase: PopularUseCase,
     private val myTopUseCase: MyTopUseCase
 ) : ViewModel() {
 
@@ -24,9 +19,18 @@ class AboutMovieViewModel @Inject constructor(
     private val testStringLiveData = MutableLiveData<List<PopularFilmModel>>()
     fun getMovieLiveData() = testStringLiveData
 
-    fun loadMoviesListToLog() {
+    private val isFilmInMyTop = MutableLiveData<Boolean>(false)
+    fun getIsFilmInMyTopLiveData() = isFilmInMyTop
+
+    fun isFilmIsPopular(currentFilmModel: PopularFilmModel) {
+        Log.d("dsadsa121", currentFilmModel.toString())
         viewModelScope.launch {
-            testStringLiveData.postValue(myTopUseCase.getAllMoviesFromDataBase())
+            val filmsInDb = aboutMovieUseCase.getAllMoviesFromDataBase()
+            filmsInDb.forEach {
+                if (it.name == currentFilmModel.name) {
+                    isFilmInMyTop.postValue(true)
+                }
+            }
         }
     }
 
@@ -34,8 +38,15 @@ class AboutMovieViewModel @Inject constructor(
         //Т.к. функции в классе MovieUseCase помечены suspend(многопоточность), то мы с помощью
         //viewModelScope.launch получаем доступ к потоку.
         // viewModelScope- откуда будем запускать потом,launch-запуск coroutine
+        isFilmInMyTop.postValue(false)
         viewModelScope.launch {
-            myTopUseCase.addMovieToDataBase(popularFilmModel)
+            aboutMovieUseCase.addMovieToDataBase(popularFilmModel)
+        }
+    }
+
+    fun deleteFromDB(popularFilmModel: PopularFilmModel) {
+        viewModelScope.launch {
+            aboutMovieUseCase.deleteMovieFromDataBase(popularFilmModel)
         }
     }
 }

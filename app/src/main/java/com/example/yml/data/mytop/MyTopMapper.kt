@@ -34,14 +34,15 @@ class MyTopMapper {
             movieDataBaseModel.year,
             movieDataBaseModel.imdb,
             movieDataBaseModel.kp,
-            stringToBitMap(movieDataBaseModel.poster),
+            stringToBitmap(movieDataBaseModel.poster),
             movieDataBaseModel.url,
             movieDataBaseModel.genre,
             movieDataBaseModel.country,
             movieDataBaseModel.feesValue
         )
     }
-    private fun stringToBitMap(encodedString: String?): Bitmap? {
+
+    private fun stringToBitmap(encodedString: String?): Bitmap? {
         return try {
             val encodeByte =
                 Base64.decode(encodedString, Base64.DEFAULT)

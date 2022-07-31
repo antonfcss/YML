@@ -12,6 +12,7 @@ import com.example.yml.databinding.FragmentPopularBinding
 import com.example.yml.domain.popular.PopularFilmModel
 import com.example.yml.presentation.base.BaseFragment
 import com.example.yml.presentation.base.getViewModelFromFactory
+import com.example.yml.presentation.features.about.AboutMovieFragment.Companion.POPULAR_FILM_TAG
 import com.example.yml.presentation.features.popular.recycler.MoviesAdapter
 
 class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>() {
@@ -27,7 +28,7 @@ class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>()
         super.onViewCreated(view, savedInstanceState)
         adapter.onItemClick = {
             val bundle = Bundle()
-            bundle.putSerializable("popularFilm", it)
+            bundle.putSerializable(POPULAR_FILM_TAG, it)
             navigateTo(R.id.aboutMovieFragment, bundle)
         }
         val layoutManager = GridLayoutManager(requireContext(), 2)

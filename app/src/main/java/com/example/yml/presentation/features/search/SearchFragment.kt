@@ -12,6 +12,7 @@ import com.example.yml.databinding.FragmentSearchBinding
 import com.example.yml.domain.popular.PopularFilmModel
 import com.example.yml.presentation.base.BaseFragment
 import com.example.yml.presentation.base.getViewModelFromFactory
+import com.example.yml.presentation.features.about.AboutMovieFragment
 import com.example.yml.presentation.features.search.recycler.SearchAdapter
 
 class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
@@ -27,7 +28,7 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
         super.onViewCreated(view, savedInstanceState)
         adapter.onItemClick = {
             val bundle = Bundle()
-            bundle.putSerializable("popularFilm", it)
+            bundle.putSerializable(AboutMovieFragment.POPULAR_FILM_TAG, it)
             navigateTo(R.id.aboutMovieFragment, bundle)
         }
         val layoutManager = LinearLayoutManager(requireContext())
