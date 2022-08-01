@@ -7,5 +7,5 @@ import dagger.Provides
 @Module
 class MyTopModule {
     @Provides
-    fun provideMyTopMapper()=MyTopMapper()
+    fun provideMyTopMapper() = MyTopMapper()
 }

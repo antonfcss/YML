@@ -4,7 +4,6 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-//Модель данных
 @Entity(tableName = "movies")
 data class MovieDataBaseModel(
     @PrimaryKey @ColumnInfo(name = "name_movie") val name: String,

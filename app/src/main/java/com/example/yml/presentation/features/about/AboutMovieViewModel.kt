@@ -1,6 +1,5 @@
 package com.example.yml.presentation.features.about
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +14,6 @@ class AboutMovieViewModel @Inject constructor(
     private val myTopUseCase: MyTopUseCase
 ) : ViewModel() {
 
-    //LiveData списка PopularFilmModel. Ниже функция с которой мы её получаем.
     private val testStringLiveData = MutableLiveData<List<PopularFilmModel>>()
     fun getMovieLiveData() = testStringLiveData
 
@@ -23,7 +21,6 @@ class AboutMovieViewModel @Inject constructor(
     fun getIsFilmInMyTopLiveData() = isFilmInMyTop
 
     fun isFilmIsPopular(currentFilmModel: PopularFilmModel) {
-        Log.d("dsadsa121", currentFilmModel.toString())
         viewModelScope.launch {
             val filmsInDb = aboutMovieUseCase.getAllMoviesFromDataBase()
             filmsInDb.forEach {
@@ -35,18 +32,16 @@ class AboutMovieViewModel @Inject constructor(
     }
 
     fun addToDB(popularFilmModel: PopularFilmModel) {
-        //Т.к. функции в классе MovieUseCase помечены suspend(многопоточность), то мы с помощью
-        //viewModelScope.launch получаем доступ к потоку.
-        // viewModelScope- откуда будем запускать потом,launch-запуск coroutine
-        isFilmInMyTop.postValue(false)
         viewModelScope.launch {
             aboutMovieUseCase.addMovieToDataBase(popularFilmModel)
+            isFilmInMyTop.postValue(true)
         }
     }
 
     fun deleteFromDB(popularFilmModel: PopularFilmModel) {
         viewModelScope.launch {
             aboutMovieUseCase.deleteMovieFromDataBase(popularFilmModel)
+            isFilmInMyTop.postValue(false)
         }
     }
 }

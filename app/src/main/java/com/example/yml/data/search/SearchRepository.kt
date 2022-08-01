@@ -1,9 +1,8 @@
 package com.example.yml.data.search
 
 import android.graphics.Bitmap
-import android.util.Log
+import com.example.yml.BuildConfig.token
 import com.example.yml.data.popular.PopularApi
-import com.example.yml.data.popular.PopularMoviesApi
 import com.example.yml.domain.popular.PopularFilmModel
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.flow.Flow
@@ -15,10 +14,11 @@ class SearchRepository @Inject constructor(
     private val popularApi: PopularApi
 ) {
     suspend fun getMoviesSearchName(movieName: String): Flow<List<PopularFilmModel>> {
-        return flow { val outputList = arrayListOf<PopularFilmModel>()
-            val retrofitModel = searchApi.funSearchMovie(movieName)
+        return flow {
+            val outputList = arrayListOf<PopularFilmModel>()
+            val retrofitModel = searchApi.funSearchMovie(token, movieName)
             retrofitModel.docs.forEach { it ->
-                val detailApiModel = popularApi.getMovieDetails(it.id.toString())
+                val detailApiModel = popularApi.getMovieDetails(token, it.id.toString())
                 outputList.add(
                     PopularFilmModel(
                         it.name,
@@ -56,4 +56,4 @@ class SearchRepository @Inject constructor(
         }
         return string
     }
-    }
+}

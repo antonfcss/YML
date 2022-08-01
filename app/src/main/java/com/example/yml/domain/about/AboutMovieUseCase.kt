@@ -10,14 +10,10 @@ class AboutMovieUseCase @Inject constructor(
     private val myTopRepository: MyTopRepository
 
 ) {
-    //Получаем domain модельку
     suspend fun addMovieToDataBase(popularFilmModel: PopularFilmModel) {
         aboutMovieRepository.addMovieToDB(popularFilmModel)
     }
 
-    /*
-      Возвращает домен модель
-     */
     suspend fun getAllMoviesFromDataBase(): List<PopularFilmModel> {
         return aboutMovieRepository.getMovieFromDB()
     }

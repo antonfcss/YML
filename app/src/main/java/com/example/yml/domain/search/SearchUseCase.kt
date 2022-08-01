@@ -1,6 +1,5 @@
 package com.example.yml.domain.search
 
-import com.example.yml.data.popular.PopularMoviesApi
 import com.example.yml.data.search.SearchRepository
 import com.example.yml.domain.popular.PopularFilmModel
 import kotlinx.coroutines.flow.Flow

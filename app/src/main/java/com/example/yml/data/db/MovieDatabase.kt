@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
     entities = [MovieDataBaseModel::class],
     exportSchema = false
 )
-//База данных
+
 abstract class MovieDatabase : RoomDatabase() {
     abstract fun aboutMovieDao(): AboutMovieDao
 }

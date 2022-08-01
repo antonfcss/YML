@@ -1,11 +1,11 @@
 package com.example.yml.presentation.features.about
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
+import androidx.core.view.isVisible
 import com.example.yml.databinding.FragmentAboutMovieBinding
 import com.example.yml.domain.popular.PopularFilmModel
 import com.example.yml.presentation.base.BaseFragment
@@ -35,36 +35,32 @@ class AboutMovieFragment : BaseFragment<AboutMovieViewModel, FragmentAboutMovieB
             movieCountry.text = getString(com.example.yml.R.string.country, film.country)
             movieGenre.text = getString(com.example.yml.R.string.movie_genre, film.genre)
             feesWorldwide.text = validateFeesWorldwideValue(film.feesValue)
-
-            /*    floatingActionButton.setOnLongClickListener {
-                    Toast.makeText(requireContext(), "test", Toast.LENGTH_LONG).show()
-                    return@setOnLongClickListener true
-                }
-
-             */
             buttonMovieWatch.setOnClickListener {
                 navigateTo(
                     com.example.yml.R.id.playTrailerDialog, bundleOf(Pair("trailerUrl", film.url))
                 )
             }
             viewModel.getIsFilmInMyTopLiveData().observe(viewLifecycleOwner) {
-                Log.d("dsadsa121", it.toString())
+                isAddButtonVisible(it)
                 if (it) {
-                    //Есть в сохраненных, то вешаем удалить из бд
-                    floatingActionButtonDelete.visibility = View.VISIBLE
-                    floatingActionButtonDelete.setOnClickListener {
-                        floatingActionButton.visibility = View.GONE
+                    floatingActionButtonDelete.setOnClickListener { view ->
+                        isAddButtonVisible(it)
                         viewModel.deleteFromDB(film)
                     }
                 } else {
-                    //Нет в сохраненных
-                    floatingActionButton.visibility = View.VISIBLE
-                    floatingActionButton.setOnClickListener {
-                        floatingActionButtonDelete.visibility = View.GONE
+                    floatingActionButton.setOnClickListener { view ->
+                        isAddButtonVisible(it.not())
                         viewModel.addToDB(film)
                     }
                 }
             }
+        }
+    }
+
+    private fun isAddButtonVisible(boolean: Boolean) {
+        with(binding) {
+            floatingActionButton.isVisible = boolean.not()
+            floatingActionButtonDelete.isVisible = boolean
         }
     }
 

@@ -51,6 +51,7 @@ class SearchFragment : BaseFragment<SearchViewModel, FragmentSearchBinding>() {
 
         })
     }
+
     private fun addRecycler(movieModel: List<PopularFilmModel>) {
         movieModel.forEach {
             Log.d("dsadsa", it.toString())

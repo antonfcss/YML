@@ -33,7 +33,10 @@ abstract class BaseFragment<VM : ViewModel, VB : ViewBinding> : DaggerFragment()
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,backPressedCallback)
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            backPressedCallback
+        )
         _binding = bindingInflater.invoke(layoutInflater, container, false)
         return binding.root
     }

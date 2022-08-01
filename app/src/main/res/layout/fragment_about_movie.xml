@@ -181,7 +181,6 @@
         android:clickable="true"
         android:contentDescription="@string/todo"
         android:src="@drawable/ic_baseline_favorite_border_24"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -195,7 +194,6 @@
         android:clickable="true"
         android:contentDescription="@string/todo"
         android:src="@drawable/ic_baseline_clear_24"
-        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

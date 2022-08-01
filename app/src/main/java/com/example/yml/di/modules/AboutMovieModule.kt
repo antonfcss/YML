@@ -7,8 +7,7 @@ import dagger.Provides
 
 @Module
 class AboutMovieModule {
-    //Если у класса есть @Inject constructor, то в модуль его добавлять не нужно
-    //Если нет, то использовать аннотацию Provides
+
     @Provides
     fun provideAboutMovieMapper(): AboutMovieMapper {
         return AboutMovieMapper()

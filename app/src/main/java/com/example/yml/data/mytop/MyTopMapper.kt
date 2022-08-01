@@ -5,13 +5,10 @@ import android.graphics.BitmapFactory
 import android.util.Base64
 import com.example.yml.data.db.MovieDataBaseModel
 import com.example.yml.domain.popular.PopularFilmModel
+import java.io.ByteArrayOutputStream
 
 class MyTopMapper {
-    /*
-    Принимаем обычную модель(не базы данных) MovieModel и возвращаем модель базы данных.
-    Создаём и наполняем поля. Изменение модели осуществляем тут, к примеру если нужно поменять тип с
-    Int на Long.
-     */
+
     fun mapToDb(popularFilmModel: PopularFilmModel): MovieDataBaseModel {
         return MovieDataBaseModel(
             name = popularFilmModel.name,
@@ -19,7 +16,7 @@ class MyTopMapper {
             year = popularFilmModel.year,
             imdb = popularFilmModel.imdb,
             kp = popularFilmModel.kp,
-            poster = popularFilmModel.poster.toString(),
+            poster = bitmapToString(popularFilmModel.poster!!)!!,
             url = popularFilmModel.url,
             genre = popularFilmModel.genre,
             country = popularFilmModel.country,
@@ -42,12 +39,19 @@ class MyTopMapper {
         )
     }
 
+    private fun bitmapToString(bitmap: Bitmap): String? {
+        val byteArray = ByteArrayOutputStream()
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArray)
+        val b: ByteArray = byteArray.toByteArray()
+        return Base64.encodeToString(b, Base64.DEFAULT)
+    }
+
     private fun stringToBitmap(encodedString: String?): Bitmap? {
         return try {
-            val encodeByte =
-                Base64.decode(encodedString, Base64.DEFAULT)
-            BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
-        } catch (e: Exception) {
+            val encodeByte = Base64.decode(encodedString, Base64.DEFAULT)
+            val bitmap = BitmapFactory.decodeByteArray(encodeByte, 0, encodeByte.size)
+            bitmap
+        } catch (e: java.lang.Exception) {
             e.message
             null
         }

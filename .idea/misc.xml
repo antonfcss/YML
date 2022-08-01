@@ -6,6 +6,7 @@
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/drawable-v24/ic_baseline_favorite_border_24.xml" value="0.1915" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1915" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/drawable/bottom_now_selector.xml" value="0.1985" />
+        <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/drawable/ic_baseline_clear_24.xml" value="0.1135" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/drawable/ic_baseline_list_24.xml" value="0.1915" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/drawable/ic_baseline_local_movies_24.xml" value="0.1985" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1915" />
@@ -23,6 +24,7 @@
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/recyclerview_item_my_top.xml" value="0.25833333333333336" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/layout/recyclerview_item_search.xml" value="0.264" />
         <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/menu/bottom_nav_menu.xml" value="0.259375" />
+        <entry key="..\:/Users/anton/AndroidStudioProjects/YML/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1135" />
       </map>
     </option>
   </component>

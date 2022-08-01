@@ -33,7 +33,7 @@ abstract class ViewModelsModule {
     @Binds
     @IntoMap
     @ViewModelKey(SearchViewModel::class)
-    abstract fun bindSearchViewModel(SearchViewModel:SearchViewModel): ViewModel
+    abstract fun bindSearchViewModel(SearchViewModel: SearchViewModel): ViewModel
 
     @Binds
     @IntoMap

@@ -11,7 +11,6 @@ import javax.inject.Inject
 class MyTopViewModel @Inject constructor(
     private val myTopUseCase: MyTopUseCase
 ) : ViewModel() {
-    //LiveData списка PopularFilmModel. Ниже функция с которой мы её получаем.
     private val testStringLiveData = MutableLiveData<List<PopularFilmModel>>()
     fun getMovieLiveData() = testStringLiveData
 

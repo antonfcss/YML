@@ -1,6 +1,5 @@
 package com.example.yml.di.modules
 
-import android.app.Application
 import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -10,8 +9,7 @@ import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class DataModule() {
-//Функция создания Room для работы с Dagger
+class DataModule {
     @Singleton
     @Provides
     fun provideRoomDatabase(context: Context): MovieDatabase {

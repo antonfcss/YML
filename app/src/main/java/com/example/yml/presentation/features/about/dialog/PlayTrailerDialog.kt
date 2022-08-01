@@ -1,7 +1,6 @@
 package com.example.yml.presentation.features.about.dialog
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -25,9 +24,7 @@ class PlayTrailerDialog : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val url = arguments?.getString("trailerUrl")
-        Log.d("asd", url.toString())
         val videoId = url?.split("=")?.get(1)
-        Log.d("dsadsa", videoId.toString())
         val player = view.findViewById<YouTubePlayerView>(R.id.trailerPlayer)
         player.getYouTubePlayerWhenReady(object : YouTubePlayerCallback {
             override fun onYouTubePlayer(youTubePlayer: YouTubePlayer) {

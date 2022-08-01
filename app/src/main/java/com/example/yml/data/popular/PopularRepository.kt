@@ -7,10 +7,6 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-// Репозиторий где мы работаем с описанымми запросами из RetrofitApi.
-// Чтобы их получить мы провайдем интерфейс PopularApi с помощью @Inject constructor.
-// Благодаря этому у нас видны все методы интерфейса. Flow класс Coroutines, который описывает поток
-// emit то что мы прокидываем в Flow
 class PopularRepository @Inject constructor(
     private val popularApi: PopularApi
 
@@ -18,9 +14,9 @@ class PopularRepository @Inject constructor(
     suspend fun getDataFromRemote(): Flow<List<PopularFilmModel>> {
         return flow {
             val outputList = arrayListOf<PopularFilmModel>()
-            val retrofitModel = popularApi.getPopularMovies()
+            val retrofitModel = popularApi.getPopularMovies(token)
             retrofitModel.docs.forEach { it ->
-                val detailApiModel = popularApi.getMovieDetails(it.id.toString())
+                val detailApiModel = popularApi.getMovieDetails(token, it.id.toString())
                 outputList.add(
                     PopularFilmModel(
                         it.name,
@@ -29,8 +25,10 @@ class PopularRepository @Inject constructor(
                         it.rating.imdb.format(1),
                         it.rating.kp.format(1),
                         getImageFromRemote(it.posterApiModel.url),
+                        //Для дополнительной сортировки  it.nameTrailer.contains("Трейлер") && ,
+                        // но работает не совсем корректно
                         detailApiModel.videosApi?.trailerApis
-                            ?.find { it.nameTrailer.contains("Трейлер") && it.url.contains("youtube") }?.url,
+                            ?.find { it.url.contains("youtube") }?.url,
                         formatApiToString(detailApiModel.genresApi.map { it.genreName }),
                         formatApiToString(detailApiModel.countriesApi.map { it.countryName }),
                         detailApiModel.feesApi?.worldApi?.valueFees ?: 0
@@ -40,6 +38,7 @@ class PopularRepository @Inject constructor(
             emit(outputList)
         }
     }
+
 
     private suspend fun getImageFromRemote(url: String): Bitmap? {
         return Picasso.get().load(url).get()
@@ -57,5 +56,9 @@ class PopularRepository @Inject constructor(
             string += list[i] + ", "
         }
         return string
+    }
+
+    companion object {
+        private const val token = com.example.yml.BuildConfig.token
     }
 }

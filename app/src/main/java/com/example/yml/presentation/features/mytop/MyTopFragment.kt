@@ -36,9 +36,6 @@ class MyTopFragment : BaseFragment<MyTopViewModel, FragmentMyTopBinding>() {
         viewModel.loadMoviesListToLog()
     }
 
-    //Т.к. в MovieViewModel testStringLiveData обсёрвит лист наших моделек List<PopularFilmModel
-    //Чтобы наша подписка работала нужно чтобы функция принимала  лист моделек List<PopularFilmModel.
-    // Должны быть одинаковые данные, что viewModel возвращает, то функция должна принмать
     private fun addMovie(popularFilmModel: List<PopularFilmModel>) {
         adapter.movies = popularFilmModel
     }

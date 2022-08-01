@@ -16,7 +16,6 @@ import com.example.yml.presentation.features.about.AboutMovieFragment.Companion.
 import com.example.yml.presentation.features.popular.recycler.MoviesAdapter
 
 class PopularFragment : BaseFragment<PopularViewModel, FragmentPopularBinding>() {
-    // by lazy стандартный делегат, который сам создаст MoviesAdapter при первом его вызове
     private val adapter by lazy { MoviesAdapter() }
 
     override val bindingInflater: (LayoutInflater, ViewGroup?, Boolean) -> FragmentPopularBinding
