@@ -40,5 +40,10 @@ abstract class ViewModelsModule {
     @ViewModelKey(MyTopViewModel::class)
     abstract fun bindMyTopViewModel(MyTopViewModel: MyTopViewModel): ViewModel
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(RegistrationModule::class)
+    abstract fun bindRegistrationViewModel(): ViewModel
+
 
 }
