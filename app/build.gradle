@@ -6,6 +6,7 @@ plugins {
     id 'com.google.gms.google-services'
 
 }
+apply plugin: 'kotlin-android'
 
 android {
     compileSdk 32
@@ -85,9 +86,8 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
 
     //Firebase
-    implementation 'com.firebaseui:firebase-ui-auth:8.0.1'
-    implementation 'com.google.firebase:firebase-auth:21.0.8'
-    implementation platform('com.google.firebase:firebase-bom:30.3.2')
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.8'
-
+    implementation platform('com.google.firebase:firebase-bom:30.4.1')
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation "androidx.core:core-ktx:+"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }

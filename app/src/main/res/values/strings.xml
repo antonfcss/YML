@@ -12,4 +12,9 @@
     <string name="movie_genre">Жанры: %1$s</string>
     <string name="fees_worldwide">Сборы в мире: $ %1$d</string>
     <string name="error_fees">Данных о сборе не найдено</string>
+    <string name="auth_textview">Авторизация</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Пароль</string>
+    <string name="singInEmailButton">Войти через Email</string>
+    <string name="signUpTextView">Создание аккаунта</string>
 </resources>

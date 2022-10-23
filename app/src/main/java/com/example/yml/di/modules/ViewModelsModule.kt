@@ -5,9 +5,11 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.yml.di.vm.DaggerViewModelFactory
 import com.example.yml.di.vm.ViewModelKey
 import com.example.yml.presentation.features.about.AboutMovieViewModel
+import com.example.yml.presentation.features.login.LoginViewModel
 import com.example.yml.presentation.features.mytop.MyTopViewModel
 import com.example.yml.presentation.features.popular.PopularViewModel
 import com.example.yml.presentation.features.search.SearchViewModel
+import com.example.yml.presentation.features.signup.SignUpViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -28,22 +30,26 @@ abstract class ViewModelsModule {
     @Binds
     @IntoMap
     @ViewModelKey(PopularViewModel::class)
-    abstract fun bindPopularViewModel(PopularViewModel: PopularViewModel): ViewModel
+    abstract fun bindPopularViewModel(popularViewModel: PopularViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(SearchViewModel::class)
-    abstract fun bindSearchViewModel(SearchViewModel: SearchViewModel): ViewModel
+    abstract fun bindSearchViewModel(searchViewModel: SearchViewModel): ViewModel
 
     @Binds
     @IntoMap
     @ViewModelKey(MyTopViewModel::class)
-    abstract fun bindMyTopViewModel(MyTopViewModel: MyTopViewModel): ViewModel
+    abstract fun bindMyTopViewModel(myTopViewModel: MyTopViewModel): ViewModel
 
     @Binds
     @IntoMap
-    @ViewModelKey(RegistrationModule::class)
-    abstract fun bindRegistrationViewModel(): ViewModel
+    @ViewModelKey(LoginViewModel::class)
+    abstract fun bindLoginViewModel(loginViewModel: LoginViewModel): ViewModel
 
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignUpViewModel::class)
+    abstract fun bindSignUpViewModel(signUpViewModel: SignUpViewModel): ViewModel
 
 }

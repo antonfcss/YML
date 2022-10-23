@@ -8,7 +8,8 @@ import javax.inject.Singleton
 @Singleton
 @Component(
     modules = [AppModule::class, ViewModelsModule::class,
-        AboutMovieModule::class, DataModule::class, MyTopModule::class, NetworkModule::class])
+        AboutMovieModule::class, DataModule::class, MyTopModule::class, NetworkModule::class]
+)
 interface AppComponent {
     fun inject(daggerFragment: DaggerFragment)
 }
